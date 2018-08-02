@@ -1,5 +1,8 @@
-def aggregate_by_column(data:dict, column_keys:list):
+def aggregate_by_column(data, column_keys):
     # first item in the list as the column names
+    """
+    :return list: [[column_key], [aggregate_key, Total, Count]]
+    """
     sorted_list = [column_keys]
     for key,group in data.items():
         month = key
@@ -12,6 +15,10 @@ def aggregate_by_column(data:dict, column_keys:list):
     return sorted_list
 
 def groupby_column(data, column_name, column_filter_method=None):
+    """
+    :param column_filter_method: a method that you wish to apply to group key i.e :column_name
+    :return dict: loan data are grouped and converted to dict with key as :column_name 
+    """
     grouped_dict = {}
     for value in data:
         key = None
